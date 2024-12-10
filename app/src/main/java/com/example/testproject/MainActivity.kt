@@ -210,6 +210,69 @@ fun QuartersText(title: String, text: String, backColor: Color, modifier: Modifi
     }
 }
 
+@Composable
+fun BusinessCard(name: String, job: String, phone: String, url: String, mail: String) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.LightGray)
+            .padding(top = 130.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Column(
+            modifier = Modifier.weight(1f),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Image(
+                painter = painterResource(R.drawable.business_card),
+                contentDescription = null,
+                Modifier
+                    .padding(top = 100.dp, start = 130.dp, end = 130.dp, bottom = 16.dp)
+                    .background(Color.DarkGray)
+            )
+            Text(
+                text = name,
+                fontSize = 36.sp
+            )
+            Text(
+                text = job,
+                fontSize = 18.sp,
+                color = Color.Green,
+                modifier = Modifier.padding(top = 12.dp)
+            )
+        }
+        Column(
+            modifier = Modifier.padding(bottom = 50.dp),
+            verticalArrangement = Arrangement.Bottom,
+        ) {
+            Text(
+                text = phone,
+                fontSize = 18.sp,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .padding(top = 12.dp)
+                    .fillMaxWidth()
+            )
+            Text(
+                text = url,
+                fontSize = 18.sp,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .padding(top = 12.dp)
+                    .fillMaxWidth()
+            )
+            Text(
+                text = mail,
+                fontSize = 18.sp,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .padding(top = 12.dp)
+                    .fillMaxWidth()
+            )
+        }
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun BirthdayCardPreview() {
@@ -223,6 +286,12 @@ fun BirthdayCardPreview() {
 //            title = stringResource(R.string.TaskManager_title),
 //            subTitle = stringResource(R.string.TaskManager_subTitle)
 //        )
-        Quarters()
+        BusinessCard(
+            name = "Choi Yoon Soo",
+            job = "Android Developer",
+            phone = "010-1234-5678",
+            url = "@github",
+            mail = "test@gmail.com"
+        )
     }
 }
